@@ -19,7 +19,7 @@ def create_python_project(name):
             template = f.read()
         full_name = click.prompt("Enter full name for license")
         full_name = " ".join([word.capitalize() for word in full_name.split()])
-        with open("LICENSE_RESULT", "w") as f:
+        with open("LICENSE", "w") as f:
             f.write(template.format(year=date.today().year, full_name=full_name))
 
     with open("README.md", "w") as f:
