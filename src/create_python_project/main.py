@@ -3,6 +3,8 @@ import os
 
 from datetime import date
 
+MODULE_DIR = os.path.dirname(__file__)
+
 @click.command()
 @click.argument("name")
 def create_python_project(name):
