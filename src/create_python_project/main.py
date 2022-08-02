@@ -26,7 +26,7 @@ def create_python_project(name):
     with open("README.md", "w") as f:
         f.write(f"# {name}")
 
-    with open("pyproject.toml") as f:
+    with open("pyproject.toml", "w") as f:
         pass
 
 
