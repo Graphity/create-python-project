@@ -28,7 +28,3 @@ def create_python_project(name):
 
     with open("pyproject.toml", "w") as f:
         pass
-
-
-if __name__ == "__main__":
-    create_python_project()
