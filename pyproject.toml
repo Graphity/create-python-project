@@ -23,4 +23,4 @@ classifiers = [
 "Bug Tracker" = "https://github.com/Graphity/create-python-project/issues"
 
 [project.scripts]
-btu-fetch = "create_python_project.main:create_python_project"
+create-python-project = "create_python_project.main:create_python_project"
