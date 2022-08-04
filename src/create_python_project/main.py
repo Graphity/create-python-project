@@ -4,6 +4,8 @@ import os
 from datetime import date
 
 MODULE_DIR = os.path.dirname(__file__)
+MIT_LICENSE_TEMPLATE_PATH = os.path.join(MODULE_DIR, "MIT_LICENSE_TEMPLATE")
+PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 
 @click.command()
 @click.argument("name")
@@ -15,8 +17,7 @@ def create_python_project(name):
     os.mknod(os.path.join(src_path, "__init__.py"))
 
     if click.confirm("Do you want to add MIT license?"):
-        mit_license_template_path = os.path.join(MODULE_DIR, "MIT_LICENSE_TEMPLATE")
-        with open(mit_license_template_path) as f:
+        with open(MIT_LICENSE_TEMPLATE_PATH) as f:
             template = f.read()
         full_name = click.prompt("Enter full name for license")
         full_name = " ".join([word.capitalize() for word in full_name.split()])
