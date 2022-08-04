@@ -19,11 +19,14 @@ def create_python_project(name):
 
     if click.confirm("Do you want to add MIT license?"):
         with open(MIT_LICENSE_TEMPLATE_PATH) as f:
-            template = f.read()
+            mit_license_template = f.read()
         full_name = click.prompt("Enter full name for license")
         full_name = " ".join([word.capitalize() for word in full_name.split()])
         with open("LICENSE", "w") as f:
-            f.write(template.format(year=date.today().year, full_name=full_name))
+            f.write(mit_license_template.format(
+                year=date.today().year,
+                full_name=full_name
+            ))
 
     with open("README.md", "w") as f:
         f.write(f"# {name}")
