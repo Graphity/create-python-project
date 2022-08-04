@@ -15,7 +15,7 @@ def create_python_project(name):
     os.mknod(os.path.join(src_path, "__init__.py"))
 
     if click.confirm("Do you want to add MIT license?"):
-        mit_license_template_path = os.join(MODULE_DIR, "MIT_LICENSE_TEMPLATE")
+        mit_license_template_path = os.path.join(MODULE_DIR, "MIT_LICENSE_TEMPLATE")
         with open(mit_license_template_path) as f:
             template = f.read()
         full_name = click.prompt("Enter full name for license")
