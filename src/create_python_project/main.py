@@ -1,5 +1,6 @@
 import click
 import os
+import toml
 
 from datetime import date
 
@@ -27,5 +28,10 @@ def create_python_project(name):
     with open("README.md", "w") as f:
         f.write(f"# {name}")
 
+    with open(PYPROJECT_TEMPLATE_PATH) as f:
+        pyproject_json = toml.load(f)
+
+    # modify data
+
     with open("pyproject.toml", "w") as f:
-        pass
+        toml.dump(pyproject_json, f)
