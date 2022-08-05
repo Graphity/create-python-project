@@ -5,7 +5,7 @@ import toml
 from datetime import date
 
 MODULE_DIR = os.path.dirname(__file__)
-MIT_LICENSE_TEMPLATE_PATH = os.path.join(MODULE_DIR, "MIT_LICENSE_TEMPLATE")
+MIT_LICENSE_TEMPLATE_PATH = os.path.join(MODULE_DIR, "MIT-LICENSE-template")
 PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 
 @click.command()
