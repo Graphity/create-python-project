@@ -17,7 +17,7 @@ def create_python_project(name):
     os.mkdir(src_path)
     os.mknod(os.path.join(src_path, "__init__.py"))
 
-    if click.confirm("Do you want to add MIT license?"):
+    if click.confirm("Do you want to add MIT license?", default=True):
         with open(MIT_LICENSE_TEMPLATE_PATH) as f:
             mit_license_template = f.read()
         full_name = click.prompt("Enter full name for license")
