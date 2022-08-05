@@ -34,7 +34,7 @@ def create_python_project(name):
                            default=full_name)
 
     with open("README.md", "w") as f:
-        f.write(f"# {name}")
+        f.write(f"# {name}\n")
         f.write(description)
 
     with open(PYPROJECT_TEMPLATE_PATH) as f:
