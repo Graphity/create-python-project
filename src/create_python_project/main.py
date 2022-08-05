@@ -1,6 +1,7 @@
 import click
 import os
 import toml
+import subprocess
 
 from datetime import date
 
@@ -48,3 +49,5 @@ def create_python_project(name):
 
     with open("pyproject.toml", "w") as f:
         toml.dump(pyproject_json, f)
+
+    subprocess.run(["git", "init"])
