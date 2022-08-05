@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "example_package_YOUR_USERNAME_HERE"
 version = "0.0.1"
