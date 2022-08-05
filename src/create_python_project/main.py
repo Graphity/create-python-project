@@ -35,8 +35,10 @@ def create_python_project(name):
                            default=full_name)
 
     with open("README.md", "w") as f:
-        f.write(f"# {name}\n")
-        f.write(description)
+        f.writelines([
+            f"# {name}\n",
+            description
+        ])
 
     with open(PYPROJECT_TEMPLATE_PATH) as f:
         pyproject_json = toml.load(f)
