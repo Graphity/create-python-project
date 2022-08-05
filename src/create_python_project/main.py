@@ -28,13 +28,23 @@ def create_python_project(name):
                 full_name=full_name
             ))
 
+    description = click.prompt("Enter brief description of the project")
+    authors = click.prompt("Enter author name",
+                           show_default=full_name,
+                           default=full_name)
+
     with open("README.md", "w") as f:
         f.write(f"# {name}")
+        f.write(description)
 
     with open(PYPROJECT_TEMPLATE_PATH) as f:
         pyproject_json = toml.load(f)
 
-    # modify data
+    pyproject_json["project"]["name"] = name
+    pyproject_json["project"]["description"] = description
+    pyproject_json["project"]["authors"] = []
+    for name in authors.split(","):
+        pyproject_json["project"]["authors"].append({"name": name})
 
     with open("pyproject.toml", "w") as f:
         toml.dump(pyproject_json, f)
