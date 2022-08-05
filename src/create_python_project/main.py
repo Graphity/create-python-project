@@ -51,3 +51,11 @@ def create_python_project(name):
         toml.dump(pyproject_json, f)
 
     subprocess.run(["git", "init"])
+
+    with open(".gitignore", "a") as f:
+        f.writelines([
+            "venv/\n",
+            "dist/\n",
+            "__pycache__/\n",
+            "*.egg-info\n"
+        ])
