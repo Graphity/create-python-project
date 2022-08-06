@@ -14,6 +14,7 @@ PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 def mkpypac(name):
     os.mkdir(name)
     os.chdir(name)
+    os.mkdir("tests")
     os.mkdir("src")
     pac_path = os.path.join("src", name.replace("-", "_"))
     os.mkdir(pac_path)
