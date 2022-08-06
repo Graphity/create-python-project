@@ -12,11 +12,12 @@ PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 @click.command()
 @click.argument("name")
 def mkpypac(name):
-    click.echo(f"Created dir {name}!")
+    os.mkdir(name)
+    os.chdir(name)
     os.mkdir("src")
-    src_path = os.path.join("src", name.replace("-", "_"))
-    os.mkdir(src_path)
-    os.mknod(os.path.join(src_path, "__init__.py"))
+    pac_path = os.path.join("src", name.replace("-", "_"))
+    os.mkdir(pac_path)
+    os.mknod(os.path.join(pac_path, "__init__.py"))
 
     if click.confirm("Do you want to add MIT license?", default=True):
         with open(MIT_LICENSE_TEMPLATE_PATH) as f:
