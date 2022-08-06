@@ -11,7 +11,7 @@ PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 
 @click.command()
 @click.argument("name")
-def create_python_project(name):
+def mkpypac(name):
     click.echo(f"Created dir {name}!")
     os.mkdir("src")
     src_path = os.path.join("src", name.replace("-", "_"))

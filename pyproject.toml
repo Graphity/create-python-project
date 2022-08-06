@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "create-python-project"
+name = "mkpypac"
 version = "0.0.1"
 authors = [
   { name="Graphity" },
@@ -19,8 +19,8 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/Graphity/create-python-project"
-"Bug Tracker" = "https://github.com/Graphity/create-python-project/issues"
+"Homepage" = "https://github.com/Graphity/mkpypac"
+"Bug Tracker" = "https://github.com/Graphity/mkpypac/issues"
 
 [project.scripts]
-create-python-project = "create_python_project.main:create_python_project"
+mkpypac = "mkpypac.main:mkpypac"
