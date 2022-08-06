@@ -9,6 +9,7 @@ MODULE_DIR = os.path.dirname(__file__)
 MIT_LICENSE_TEMPLATE_PATH = os.path.join(MODULE_DIR, "MIT-LICENSE-template")
 PYPROJECT_TEMPLATE_PATH = os.path.join(MODULE_DIR, "pyproject-template.toml")
 
+
 @click.command()
 @click.argument("name")
 def mkpypac(name):
@@ -26,21 +27,19 @@ def mkpypac(name):
         full_name = click.prompt("Enter full name for license")
         full_name = " ".join([word.capitalize() for word in full_name.split()])
         with open("LICENSE", "w") as f:
-            f.write(mit_license_template.format(
-                year=date.today().year,
-                full_name=full_name
-            ))
+            f.write(
+                mit_license_template.format(
+                    year=date.today().year, full_name=full_name
+                )
+            )
 
     description = click.prompt("Enter brief description of the project")
-    authors = click.prompt("Enter author name",
-                           show_default=full_name,
-                           default=full_name)
+    authors = click.prompt(
+        "Enter author name", show_default=full_name, default=full_name
+    )
 
     with open("README.md", "w") as f:
-        f.writelines([
-            f"# {name}\n",
-            description
-        ])
+        f.writelines([f"# {name}\n", description])
 
     with open(PYPROJECT_TEMPLATE_PATH) as f:
         pyproject_json = toml.load(f)
@@ -58,12 +57,7 @@ def mkpypac(name):
     subprocess.run(["git", "branch", "-m", "main"])
 
     with open(".gitignore", "a") as f:
-        f.writelines([
-            "venv/\n",
-            "dist/\n",
-            "__pycache__/\n",
-            "*.egg-info\n"
-        ])
+        f.writelines(["venv/\n", "dist/\n", "__pycache__/\n", "*.egg-info\n"])
 
     click.echo(
         click.style(f"\nCreated a new package in {os.getcwd()}", fg="green")
