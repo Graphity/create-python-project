@@ -64,3 +64,7 @@ def mkpypac(name):
             "__pycache__/\n",
             "*.egg-info\n"
         ])
+
+    click.echo(
+        click.style(f"\nCreated a new package in {os.getcwd()}", fg="green")
+    )
