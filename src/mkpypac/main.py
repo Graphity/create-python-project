@@ -55,6 +55,7 @@ def mkpypac(name):
         toml.dump(pyproject_json, f)
 
     subprocess.run(["git", "init"])
+    subprocess.run(["git", "branch", "-m", "main"])
 
     with open(".gitignore", "a") as f:
         f.writelines([
